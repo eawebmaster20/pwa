@@ -1,0 +1,7 @@
+{
+    "/ngsw-worker.js": {
+      "target": "http://localhost:4001",
+      "secure": false,
+      "changeOrigin": true
+    }
+  }
