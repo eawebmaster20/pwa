@@ -1,0 +1,49 @@
+@use 'mixins' as mix;
+@use 'variables' as var;
+@use 'function' as *;
+
+.notification {
+    @include mix.flex(column, 0.5rem);
+    width: 100%;
+    flex: 1;
+    padding: 1rem;
+
+    &__dialog-section {
+        @include mix.flex(column);
+        flex: 1;
+        padding-top: 1rem;
+        overflow: scroll;
+        scrollbar-width: none;
+    }
+    &__date {
+        @include mix.flex();
+        @include mix.flex-position(center, center);
+        font-size: var.$size-s;
+        width: 100%;
+        p {
+            text-align: center;
+            @include mix.flex(row, 0);
+            @include mix.flex-position(center, center);
+            span {
+                width: 10px;
+                height: 10px;
+
+                img {
+                    width: 100%;
+                    aspect-ratio: 1;
+                }
+            }
+        }
+    }
+    &__message-container {
+        width: fit-content;
+        max-width: pxToRem(350);
+        height: fit-content;
+        padding: 1rem;
+    }
+    &-recipient {
+        background-color: var.$clr-secondary-light;
+        color: var.$clr-black;
+        border-radius: 1.25rem 1.25rem 1.25rem 0 ;
+    }
+}
