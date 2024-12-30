@@ -1,5 +1,6 @@
 <section class="notification">
-    <div class="logo"></div>
+    <!-- <div class="notification__status-state"></div> -->
+    <app-status [status]="status()" />
     <div class="notification__content">
         <section class="notification__message-content">
             <h2 class="notification__title">{{ title() }}</h2>
