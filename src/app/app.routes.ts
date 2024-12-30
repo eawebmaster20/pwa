@@ -1,6 +1,12 @@
 import { Routes } from '@angular/router';
+import { DashboardComponent } from './features/dashboard/pages/dashboard/dashboard.component';
 
 export const routes: Routes = [
+    {
+        path: '',
+        component: DashboardComponent,
+        title: 'Dashboard',
+    },
     {
         path: 'notifications',
         loadComponent: () => import('./features/notification/pages/all-notifications/notifications/notifications.component')
