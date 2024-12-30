@@ -1,0 +1,23 @@
+<header>
+    <section class="logo_title">
+        <img src="assets/icons/logo.svg" alt="application logo" class="logo">
+        <h1 class="title">Update</h1>
+    </section>
+    
+    <section class="search-bar">
+        <input type="search" class="search-bar__input" placeholder="Search by title...">
+    </section>
+
+</header>
+<!-- notifications container -->
+<section class="notifications">
+    @for (notification of notifications; track $index) {
+        <app-notification-card 
+            [routerLink]="['/notifications', notification.id]"
+            [title]="notification.title"
+            [description]="notification.description"
+            [time]="notification.time"
+        />
+
+    }
+</section>
