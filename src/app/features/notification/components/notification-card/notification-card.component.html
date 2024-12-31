@@ -1,0 +1,16 @@
+<section class="notification">
+    <!-- <div class="notification__status-state"></div> -->
+    <app-status [status]="status()" />
+    <div class="notification__content">
+        <section class="notification__message-content">
+            <h2 class="notification__title">{{ title() }}</h2>
+            <p class="notification__description">
+                {{description() }}.
+            </p>
+        </section>
+        <section class="notification__status-time">
+            <div class="notification__status-marker"></div>
+            <p class="notification__time">{{ time() }}</p>
+        </section>
+    </div>
+</section>

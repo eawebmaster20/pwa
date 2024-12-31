@@ -1,0 +1,54 @@
+@use 'variables' as var;
+
+@mixin flex ($direction:row, $gap:1rem) {
+    display: flex;
+    flex-direction: $direction;
+    gap: $gap;
+}
+@mixin flex-position ($justify: flex-start, $align: stretch) {
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin font ($size: var.$font-size-l, $weight: 300, $color: var.$color-white) {
+    font-family: var.$font-family;
+    font-weight: $weight;
+    font-size: $size;
+    color: $color;
+}
+
+@mixin breakpoint ($breakpoint) {
+    @if map-has-key($map: var.$map-for-breakpoints, $key: $breakpoint) {
+        @media (min-width: map-get(var.$map-for-breakpoints, $breakpoint)) {
+            @content
+
+        } 
+    } 
+    @else {
+        @error "Breakpoint '#{$breakpoint}' is not defined."  
+        }
+}
+
+// chat dialog styles
+@mixin senderDialog () {
+    font-size: var.$size-m;
+    background-color: var.$clr-secondary-light;
+    color: var.$clr-black;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    max-width: 12.5rem;
+    width: fit-content;
+    height: fit-content;
+    padding: var.$spacing-m;
+}
+@mixin recipientDialog () {
+    font-size: var.$size-m;
+    background-color: var.$clr-primary-light;
+    color: var.$clr-white;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    max-width: 200px;
+    width: fit-content;
+    height: fit-content;
+    padding: var.$spacing-m;
+}

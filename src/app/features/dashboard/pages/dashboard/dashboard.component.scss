@@ -1,0 +1,91 @@
+@use 'variables' as var;
+@use 'mixins' as mix;
+@use 'function' as *;
+
+header {
+    @include mix.flex(column);
+    @include mix.flex-position();
+    width: 100%;
+    height: fit-content;
+
+    .logo_title {
+        @include mix.flex();
+        @include mix.flex-position(flex-start, center);
+        width: 100%;
+
+        img {
+            width: 2rem;
+        }
+    }
+}
+
+
+// dashboard content - grid
+.dashboard-content {
+    @include mix.flex(column);
+    width: 100%;
+    flex: 1;
+    overflow: scroll;
+    scrollbar-width: none;
+
+    &__grid, .current-data {
+        flex: 1;
+        background-color: var.$clr-white;
+        border-radius: 0.5rem;
+        padding: 1rem;
+
+    }
+    .current-data {
+        @include mix.flex(column, 0.5rem);
+        @include mix.flex-position(center);
+    }
+    
+    &__grid {
+        @include mix.flex();
+        @include mix.flex-position(space-between, center);
+        
+        
+        &__details {
+            .number-of-alert, .text {
+                padding-inline: 1rem;
+            }
+            .text {
+                font-size: var.$size-m;
+                margin-bottom: 1rem;
+            }
+            .number-of-alert {
+                font-size: 4rem;
+            }
+        }
+        
+        img {
+            width: 8rem;
+        }
+    }
+    
+    .detail-title {
+        font-size: var.$size-m;
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+
+}
+
+// control panel
+.control-panel {
+    @include mix.flex();
+    @include mix.flex-position(space-between, center);
+    width: 100%;
+    height: fit-content;
+
+    &__element {
+        @include mix.flex(column, 0.5rem);
+        @include mix.flex-position(center, center);
+
+        img {
+            width: pxToRem(24);
+            height: pxToRem(24);
+        }
+    }
+}

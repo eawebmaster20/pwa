@@ -1,0 +1,48 @@
+@use 'variables' as var;
+@use 'mixins' as mix;
+@use 'function' as *;
+
+.notification {
+    @include mix.flex();
+    width: 100%;
+    height: fit-content;
+    padding: 1rem;
+    background-color: var.$clr-white;
+    border-radius: 4px;
+
+    &__content {
+        @include mix.flex();
+        @include mix.flex-position(space-between, center);
+        width: 100%;
+    }
+
+    // notification content
+    &__message-content {
+        @include mix.flex(column);
+    }
+    &__title {
+        font-size: var.$size-m;
+    }
+    &__description {
+        font-size: var.$size-m;
+    }
+
+    // status and time section
+    &__status-time {
+        @include mix.flex(column);
+        @include mix.flex-position(flex-end, center); // confirm style
+        width: fit-content;
+    }
+
+    &__status-marker {
+        width: 10px;
+        height: 10px;
+        aspect-ratio: 1;
+        border: none;
+        border-radius: 100%;
+        background-color: var.$status-marker;
+    }
+    &__time {
+        font-size: var.$size-xs;
+    }
+}

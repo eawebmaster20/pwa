@@ -1,0 +1,12 @@
+<div class="notification__status-state">
+    @if (status() === 'successful') {
+        <img src="assets/icons/success-notification.svg" alt="success notification">
+
+    }@else if (status() === 'warning') {
+        <img src="assets/icons/warning-notification.svg" alt="warning notification">
+
+    }@else {
+        <img src="assets/icons/error-notification.svg" alt="error notification">
+
+    }
+</div>

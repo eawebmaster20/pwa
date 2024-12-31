@@ -1,0 +1,114 @@
+@use 'variables' as var;
+@use 'mixins' as mix;
+@use 'function' as *;
+
+header {
+    @include mix.flex(column);
+
+    .logo_title {
+        @include mix.flex(row, 0.5rem);
+        @include mix.flex-position(flex-start, center);
+
+        img {
+            width: pxToRem(32);
+        }
+
+        .title {
+            font-size: var.$size-xl;
+        }
+    }
+    
+
+    .search-bar {
+        border: 1px solid var.$clr-secondary;
+        border-radius: 2.25rem;
+        
+        &__input {
+            width: 100%;
+            border-radius: 2.25rem;
+            border: 1px solid var.$clr-secondary;
+            outline: none;
+            padding: 1rem;
+            transition: all 300ms ease-in-out;
+            // caret-color: var.$clr-secondary;
+            
+            &:focus, &:active {
+                border: 1px solid var.$clr-secondary;
+                border: 1px solid var.$clr-white;
+                // border: 1px solid red;
+
+            }
+        }
+    }
+}
+
+.notifications {
+    @include mix.flex(column);
+    width: 100%;
+    height: 100%;
+    flex: 1;
+    overflow: scroll;
+    scrollbar-width: none;
+
+    .notification {
+        @include mix.flex();
+        width: 100%;
+        height: fit-content;
+        padding: 1rem;
+        background-color: var.$clr-white;
+
+        &__content {
+            @include mix.flex();
+            @include mix.flex-position(space-between, center);
+            width: 100%;
+        }
+
+        // notification content
+        &__message-content {
+            @include mix.flex(column);
+        }
+        &__title {
+            font-size: var.$size-m;
+        }
+        &__description {
+            font-size: var.$size-m;
+        }
+
+        // status and time section
+        &__status-time {
+            @include mix.flex(column);
+            @include mix.flex-position(flex-end, center); // confirm style
+            width: fit-content;
+        }
+
+        &__status-marker {
+            width: 10px;
+            height: 10px;
+            aspect-ratio: 1;
+            border: none;
+            border-radius: 100%;
+            background-color: var.$status-marker;
+        }
+        &__time {
+            font-size: var.$size-xs;
+        }
+    }
+}
+
+// control panel
+.control-panel {
+    @include mix.flex();
+    @include mix.flex-position(space-between, center);
+    width: 100%;
+    height: fit-content;
+
+    &__element {
+        @include mix.flex(column, 0.5rem);
+        @include mix.flex-position(center, center);
+
+        img {
+            width: pxToRem(24);
+            height: pxToRem(24);
+        }
+    }
+}
