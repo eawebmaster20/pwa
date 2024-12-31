@@ -56,7 +56,10 @@
         <img src="assets/icons/notification.svg" alt="notification svg icon">
         <p class="text">Notification</p>
     </button>
-    <button type="button" class="control-panel__element control-panel-theme">
+    <button type="button" 
+        class="control-panel__element control-panel-theme"
+        (click)="changeTheme()"
+    >
         <img src="assets/icons/light-theme.svg" alt="theme svg icon">
         <p class="text">Theme</p>
     </button>

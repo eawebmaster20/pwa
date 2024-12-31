@@ -4,6 +4,7 @@ import { DatePipe } from '@angular/common';
 
 // local imports
 import { NotificationCardComponent } from "../../../notification/components/notification-card/notification-card.component";
+import { ThemeService } from '../../../../core/services/theme/theme.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,5 +15,13 @@ import { NotificationCardComponent } from "../../../notification/components/noti
 })
 export class DashboardComponent {
   displayDate = signal(new Date());
+
+  constructor(
+    private themeService: ThemeService,
+  ) {}
+
+  changeTheme() {
+    this.themeService.toggleTheme();
+  }
 
 }

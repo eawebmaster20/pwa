@@ -3,6 +3,7 @@ import { RouterLink } from '@angular/router';
 
 // local imports
 import { NotificationCardComponent } from "../../../components/notification-card/notification-card.component";
+import { ThemeService } from '../../../../../core/services/theme/theme.service';
 
 @Component({
   selector: 'app-notifications',
@@ -13,6 +14,10 @@ import { NotificationCardComponent } from "../../../components/notification-card
 })
 export class NotificationsComponent implements OnInit {
   notifications!:any[];
+
+  constructor(
+    private themeService: ThemeService
+  ) {};
 
   ngOnInit(): void {
     this.notifications = [
@@ -80,5 +85,9 @@ export class NotificationsComponent implements OnInit {
         status: 'successful',
       },
     ]
+  }
+
+  changeTheme() {
+    this.themeService.toggleTheme();
   }
 }

@@ -24,18 +24,17 @@ header {
         border-radius: 2.25rem;
         
         &__input {
+            background-color: var(--search-input-bg-clr);
             width: 100%;
             border-radius: 2.25rem;
             border: 1px solid var.$clr-secondary;
             outline: none;
             padding: 1rem;
             transition: all 300ms ease-in-out;
-            // caret-color: var.$clr-secondary;
             
             &:focus, &:active {
                 border: 1px solid var.$clr-secondary;
                 border: 1px solid var.$clr-white;
-                // border: 1px solid red;
 
             }
         }

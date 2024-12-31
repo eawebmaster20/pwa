@@ -7,7 +7,7 @@
     width: 100%;
     height: fit-content;
     padding: 1rem;
-    background-color: var.$clr-white;
+    background-color: var(--card-bg-color);
     border-radius: 4px;
 
     &__content {
