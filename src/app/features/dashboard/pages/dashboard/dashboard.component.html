@@ -1,0 +1,63 @@
+
+<header>
+    <div class="logo_title">
+        <div class="logo">
+            <img src="assets/icons/logo.svg" alt="application svg logo">
+        </div>
+        <h1 class="title">Transformer</h1>
+    </div>
+    <p class="date">Monday, 30 December, 2024</p>
+</header>
+
+<!-- dashboard content -->
+<section class="dashboard-content">
+    <!-- grid -->
+    <section class="current-data">
+        <p class="detail-title">Current state</p>
+        <app-notification-card 
+            [title]="'System is online'"
+            [description]="'System successfully booted'"
+            [time]="'05:23'"
+            [status]="'successful'"
+        />
+    </section>
+    <div class="dashboard-content__grid grid-item-2">
+        <section class="dashboard-content__grid__details">
+            <p class="detail-title">Success</p>
+            <p class="number-of-alert">12</p>
+            <p class="text">Notification</p>
+        </section>
+        <img src="assets/icons/transformer.svg" alt="transformer svg icon">
+
+    </div>
+    <div class="dashboard-content__grid grid-item-1">
+        <section class="dashboard-content__grid__details">
+            <p class="detail-title">Alert</p>
+            <p class="number-of-alert">12</p>
+            <p class="text">Notification</p>
+        </section>
+        <img src="assets/icons/transformer.svg" alt="transformer svg icon">
+    </div>
+</section>
+
+<!-- control panel -->
+<section class="control-panel">
+    <button type="button" 
+        class="control-panel__element control-panel__dashboard"
+        routerLink=""
+    >
+        <img src="assets/icons/dashboard.svg" alt="dashboard svg icon">
+        <p class="text">Dashboard</p>
+    </button>
+    <button type="button" 
+        class="control-panel__element control-panel__notification"
+        routerLink="/notifications"
+    >
+        <img src="assets/icons/notification.svg" alt="notification svg icon">
+        <p class="text">Notification</p>
+    </button>
+    <button type="button" class="control-panel__element control-panel-theme">
+        <img src="assets/icons/light-theme.svg" alt="theme svg icon">
+        <p class="text">Theme</p>
+    </button>
+</section>
