@@ -30,7 +30,7 @@ header {
 
     &__grid, .current-data {
         flex: 1;
-        background-color: var.$clr-white;
+        background-color: var(--card-bg-color);
         border-radius: 0.5rem;
         padding: 1rem;
 

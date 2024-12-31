@@ -1,0 +1,32 @@
+@use 'variables' as var;
+@use 'mixins' as mix;
+
+
+$light-mode: (
+    background: var.$clr-secondary, 
+    text: var.$clr-black, 
+    bg-light: var.$clr-secondary-light,
+    card-bg-color: var.$clr-white, 
+    search-input-bg-clr: var.$clr-white,
+);
+    
+$dark-mode: (
+    background: var.$clr-primary, 
+    text: var.$clr-white, 
+    bg-light: var.$clr-primary-light,
+    card-bg-color: var.$clr-primary-light, 
+    search-input-bg-clr: var.$clr-primary-light,
+);
+
+:root {
+    @each $key, $value in $light-mode {
+      --#{$key}: #{$value};
+    }
+}
+  
+[data-theme="dark"] {
+    @each $key, $value in $dark-mode {
+        --#{$key}: #{$value};
+    }
+}
+  
