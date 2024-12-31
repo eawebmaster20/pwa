@@ -1,10 +1,13 @@
-import { ApplicationRef, Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { ApplicationRef, Component, effect } from '@angular/core';
+import { Router, RouterOutlet } from '@angular/router';
 import { SwUpdate } from '@angular/service-worker';
 import { concat, interval } from 'rxjs';
 import { first } from 'rxjs/operators';
 import { getMessaging, getToken, onMessage } from 'firebase/messaging';
 import { initializeApp } from 'firebase/app';
+
+// local imports
+import { MediaQueryService } from './core/services/media-query/media-query.service';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +20,17 @@ export class AppComponent {
   title = 'pwa';
   token: string | null = null;
 
-  constructor(private appRef: ApplicationRef, private updates: SwUpdate) {}
+  constructor(
+    private appRef: ApplicationRef, 
+    private updates: SwUpdate,
+    private router: Router,
+    private mediaQueryService: MediaQueryService,
+  ) {
+    // dynamically handle viewport display
+    effect(() => {
+      this.handleMobileView();
+    })
+  }
 
   ngOnInit() {
     // Initialize Firebase app here
@@ -40,6 +53,9 @@ export class AppComponent {
     // Call methods after Firebase initialization
     this.requestPermission();
     this.listenForMessages();
+
+    // checks viewport
+    this.handleMobileView ();
   }
 
   ngAfterViewInit() {
@@ -92,5 +108,16 @@ export class AppComponent {
     } catch (err) {
       console.error('Error listening for messages:', err);
     }
+  }
+
+  // handle mobile viewport
+  handleMobileView () {
+    const isMobile = this.mediaQueryService.isMobile()
+    if (!isMobile) {
+      this.router.navigate(['/invalid-viewport'])
+    } else if (isMobile) {
+      this.router.navigate(['']);
+    }
+
   }
 }
