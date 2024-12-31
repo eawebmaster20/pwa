@@ -18,5 +18,11 @@ export const routes: Routes = [
         loadComponent: () => import('./features/notification/pages/notification-message/notification-message/notification-message.component')
             .then(m => m.NotificationMessageComponent),
         title: 'Message',
+    },
+    {
+        path: 'invalid-viewport',
+        loadComponent: () => import('./shared/components/non-mobile-device/non-mobile-device.component')
+            .then(nm => nm.NonMobileDeviceComponent),
+        title: 'Invalid viewport',
     }
 ];
