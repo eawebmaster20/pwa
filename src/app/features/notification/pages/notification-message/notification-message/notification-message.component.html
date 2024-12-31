@@ -12,4 +12,7 @@
 </header>
 
 <!-- notification message -->
-<app-messages />
+<app-messages 
+    [message]="notification.description"
+    [time]="notification.time"
+/>

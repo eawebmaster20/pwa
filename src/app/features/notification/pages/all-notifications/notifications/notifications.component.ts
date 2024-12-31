@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 // local imports
 import { NotificationCardComponent } from "../../../components/notification-card/notification-card.component";
 import { ThemeService } from '../../../../../core/services/theme/theme.service';
+import { NotificationService } from '../../../service/notification-service/notification.service';
 
 @Component({
   selector: 'app-notifications',
@@ -16,78 +17,21 @@ export class NotificationsComponent implements OnInit {
   notifications!:any[];
 
   constructor(
-    private themeService: ThemeService
+    private themeService: ThemeService,
+    private notificationSerive: NotificationService,
+    private router: Router,
   ) {};
 
   ngOnInit(): void {
-    this.notifications = [
-      {
-        id: 2,
-        title: 'Shutting down',
-        description: 'A malfunction to the system server occurred',
-        time: '5:30',
-        status: 'warning',
-      },
-      {
-        id: 3,
-        title: 'System is offline',
-        description: 'A malfunction to the system server occurred',
-        time: '05:30',
-        status: 'error',
-      },
-      {
-        id: 23,
-        title: 'Launched successfully',
-        description: 'System is successfully online, no malfunction detected. All services are active',
-        time: '06:30',
-        status: 'successful',
-      },
-      {
-        id: 11,
-        title: 'Shutting down',
-        description: 'A malfunction to the system server occurred',
-        time: '5:30',
-        status: 'warning',
-      },
-      {
-        id: 22,
-        title: 'Failed launch',
-        description: 'A malfunction to the system server occurred',
-        time: '05:30',
-        status: 'error',
-      },
-      {
-        id: 25,
-        title: 'Launched successfully',
-        description: 'System is successfully online, no malfunction detected. All services are active',
-        time: '06:30',
-        status: 'successful',
-      },
-      {
-        id: 17,
-        title: 'Shutting down',
-        description: 'A malfunction to the system server occurred',
-        time: '5:30',
-        status: 'warning',
-      },
-      {
-        id: 56,
-        title: 'Internal server error',
-        description: 'A malfunction to the system server occurred',
-        time: '05:30',
-        status: 'error',
-      },
-      {
-        id: 34,
-        title: 'Launched successfully',
-        description: 'System is successfully online, no malfunction detected. All services are active',
-        time: '06:30',
-        status: 'successful',
-      },
-    ]
+    this.notifications = this.notificationSerive.getNotifications();
   }
 
   changeTheme() {
     this.themeService.toggleTheme();
+  }
+
+  selectNotification(id:number):void {
+    this.notificationSerive.selectNotification(id);
+    this.router.navigate([`/notifications/${id}`]);
   }
 }
