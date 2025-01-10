@@ -42,8 +42,8 @@
         padding: 1rem;
     }
     &-recipient {
-        background-color: var.$clr-secondary-light;
-        color: var.$clr-black;
+        background-color: var(--bg-light);
+        color: var(--text);
         border-radius: 1.25rem 1.25rem 1.25rem 0 ;
     }
 }

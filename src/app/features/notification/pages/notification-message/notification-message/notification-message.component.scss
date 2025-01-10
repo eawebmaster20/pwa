@@ -7,19 +7,19 @@ header {
     @include mix.flex-position(space-between, center);
     width: 100%;
     height: pxToRem(100);
-    background-color: var.$clr-secondary-light;
     padding: 1rem;
     & div {
         @include mix.flex();
         @include mix.flex-position(space-between, center);
     }
-    .go-back {
+    .go-back, button {
         @include mix.flex();
         
-        img {
-            width: 16px;
-            height: 16px;
+        svg path {
+            stroke: var(--text);
+            fill: var(--text);
         }
+        
     }
 }
 
@@ -63,8 +63,8 @@ header {
         padding: 1rem;
     }
     &-recipient {
-        background-color: var.$clr-secondary-light;
-        color: var.$clr-black;
+        background-color: var(--bg-light);
+        color: var(--text);
         border-radius: 1.25rem 1.25rem 1.25rem 0 ;
     }
 }
