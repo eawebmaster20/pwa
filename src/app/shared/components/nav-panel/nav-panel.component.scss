@@ -1,0 +1,21 @@
+@use 'variables' as var;
+@use 'mixins' as mix;
+@use 'function' as *;
+
+// control panel
+.control-panel {
+    @include mix.flex();
+    @include mix.flex-position(space-between, center);
+    width: 100%;
+    height: fit-content;
+
+    &__element {
+        @include mix.flex(column, 0.5rem);
+        @include mix.flex-position(center, center);
+
+        img {
+            width: pxToRem(24);
+            height: pxToRem(24);
+        }
+    }
+}
