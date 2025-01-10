@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 // local imports
@@ -12,15 +12,11 @@ import { NotificationService } from '../../../service/notification-service/notif
   templateUrl: './notification-message.component.html',
   styleUrl: './notification-message.component.scss'
 })
-export class NotificationMessageComponent implements OnInit {
+export class NotificationMessageComponent {
   notification = this.notificationSerivce.selectedNotification();
   
   constructor(
     private notificationSerivce: NotificationService,
   ) {}
-
-  ngOnInit(): void {
-    // this.notificationSerivce.selectedNotification();
-    console.log(this.notification);
-  }
+  
 }

@@ -17,7 +17,9 @@
 </header>
 
 <!-- notification message -->
-<app-messages 
-    [message]="notification.description"
-    [time]="notification.time"
-/>
+@if (notification) {
+    <app-messages 
+        [message]="notification.description"
+        [time]="notification.time"
+    />
+}

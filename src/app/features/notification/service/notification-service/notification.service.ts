@@ -1,5 +1,8 @@
 import { Injectable, signal } from '@angular/core';
 
+// local imports
+import { Notification } from '../../model/notification.interface';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -69,7 +72,7 @@ export class NotificationService {
       status: 'successful',
     },
   ]
-  selectedNotification = signal<any>(null);
+  selectedNotification = signal<Notification | null>(null);
 
   getNotifications() {
     return this.notifications

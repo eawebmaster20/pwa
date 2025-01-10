@@ -53,9 +53,7 @@ export class AppComponent {
     // Call methods after Firebase initialization
     this.requestPermission();
     this.listenForMessages();
-
-    // checks viewport
-    this.handleMobileView ();
+    
   }
 
   ngAfterViewInit() {

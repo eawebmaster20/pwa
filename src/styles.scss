@@ -19,6 +19,7 @@ body {
     height: 100dvh;
     font-family: var.$font;
     color: var(--text);
+    background-color: var(--background);
 }
 app-root {
     @include mix.flex(row, 0);

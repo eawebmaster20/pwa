@@ -17,16 +17,16 @@ export class NotificationsComponent implements OnInit {
   notifications!:any[];
 
   constructor(
-    private notificationSerive: NotificationService,
+    private notificationService: NotificationService,
     private router: Router,
   ) {};
 
   ngOnInit(): void {
-    this.notifications = this.notificationSerive.getNotifications();
+    this.notifications = this.notificationService.getNotifications();
   }
 
   selectNotification(id:number):void {
-    this.notificationSerive.selectNotification(id);
+    this.notificationService.selectNotification(id);
     this.router.navigate([`/notifications/${id}`]);
   }
 }

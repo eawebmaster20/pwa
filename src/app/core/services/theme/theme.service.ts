@@ -11,7 +11,6 @@ export class ThemeService {
   }
 
   toggleTheme(): void {
-    console.log('called....')
     this.activeTheme = this.activeTheme === 'light' ? 'dark' : 'light';
     this.applyTheme(this.activeTheme);
     localStorage.setItem('theme', this.activeTheme);
