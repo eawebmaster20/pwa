@@ -5,12 +5,17 @@ main {
     @include mix.flex();
     @include mix.flex-position(center, center);
     padding: 2rem;
+    height: 100%;
+    background-color: var(--background-secondary);
 
     & > * {
         flex: 1;
     }
-
+    
     .information {
+        h1, .description {
+            color: var(--text);
+        }
         h1 {
             font-size: 5rem;
         }

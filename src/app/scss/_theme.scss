@@ -4,18 +4,22 @@
 
 $light-mode: (
     background: var.$clr-secondary, 
+    background-secondary: var.$clr-secondary,
     text: var.$clr-black, 
     bg-light: var.$clr-white,
     card-bg-color: var.$clr-white, 
     search-input-bg-clr: var.$clr-white,
+    nav-panel-clr: var.$nav-panels-clr,
 );
     
 $dark-mode: (
     background: var.$clr-primary, 
+    background-secondary: var.$clr-primary-light,
     text: var.$clr-white, 
     bg-light: var.$clr-primary-light,
     card-bg-color: var.$clr-primary-light, 
     search-input-bg-clr: var.$clr-primary-light,
+    nav-panel-clr: var.$clr-secondary,
 );
 
 :root {
