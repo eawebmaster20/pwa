@@ -12,13 +12,14 @@ header {
         @include mix.flex();
         @include mix.flex-position(space-between, center);
     }
-    .go-back {
+    .go-back, button {
         @include mix.flex();
         
-        img {
-            width: 1rem;
-            height: 1rem;
+        svg path {
+            stroke: var(--text);
+            fill: var(--text);
         }
+        
     }
 }
 
