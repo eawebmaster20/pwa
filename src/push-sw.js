@@ -15,8 +15,10 @@ self.addEventListener('push', (event) => {
   
   self.addEventListener('notificationclick', (event) => {
     event.notification.close();
+    const data = event.notification.data;
+    const urlToOpen = `/notification?body=${encodeURIComponent(data?.body || '')}`;
     event.waitUntil(
-      clients.openWindow(event.notification.data.url || '/notifications')
+      clients.openWindow(urlToOpen || '/notifications')
     );
   });
   
