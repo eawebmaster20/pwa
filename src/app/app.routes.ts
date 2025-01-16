@@ -19,10 +19,10 @@ export const routes: Routes = [
             .then(m => m.NotificationMessageComponent),
         title: 'Transformer | Message',
     },
-    {
-        path: 'invalid-viewport',
-        loadComponent: () => import('./shared/components/non-mobile-device/non-mobile-device.component')
-            .then(nm => nm.NonMobileDeviceComponent),
-        title: 'Transformer | Incompatible device',
-    }
+    // {
+    //     path: 'invalid-viewport',
+    //     loadComponent: () => import('./shared/components/non-mobile-device/non-mobile-device.component')
+    //         .then(nm => nm.NonMobileDeviceComponent),
+    //     title: 'Transformer | Incompatible device',
+    // }
 ];
