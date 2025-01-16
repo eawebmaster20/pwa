@@ -10,7 +10,7 @@ self.addEventListener('push', (event) => {
       }
     };
   
-    event.waitUntil(self.registration.showNotification(data.title, options));
+    event.waitUntil(self.registration.showNotification(data, options));
   });
   
   self.addEventListener('notificationclick', (event) => {
