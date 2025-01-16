@@ -30,8 +30,9 @@ export class NotificationsComponent implements OnInit {
     this.notifications = this.lsService.getItem('notifications') || []
   }
 
-  selectNotification(id:number):void {
-    this.notificationService.selectNotification(id);
-    this.router.navigate([`/notifications/${id}`]);
+  selectNotification(notification:any, index:number):void {
+    // this.notificationService.selectNotification(id);
+    this.lsService.setItem('selectedMessage', notification)
+    this.router.navigate([`/notifications/${index}`]);
   }
 }

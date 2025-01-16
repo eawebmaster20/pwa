@@ -13,7 +13,7 @@
 <section class="notifications">
     @for (notification of notifications; track $index) {
         <app-notification-card 
-            (click)="selectNotification($index)"
+            (click)="selectNotification(notification, $index)"
             [title]="notification.title"
             [description]="notification.description"
             [time]="notification.time"
