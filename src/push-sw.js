@@ -18,8 +18,8 @@ self.addEventListener('push', (event) => {
     const data = event.notification.data;
     const urlToOpen = `/notification?body=${encodeURIComponent(data?.body || '')}`;
     console.log(data);
-    event.waitUntil(
-      clients.openWindow(urlToOpen)
-    );
+    // event.waitUntil(
+    //   clients.openWindow(urlToOpen)
+    // );
   });
   
