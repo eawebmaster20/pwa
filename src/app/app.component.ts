@@ -15,11 +15,12 @@ import { WebSocketService } from './core/services/web-socket.service';
   standalone: true,
   imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'] // Fixed typo from `styleUrl` to `styleUrls`
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   title = 'pwa';
   token: string | null = null;
+  message:any = null;
 
   constructor(
     private appRef: ApplicationRef, 
@@ -35,10 +36,11 @@ export class AppComponent {
   }
 
   ngOnInit() {
-    this.socket.on('message', (msg: string) => {
-      console.log(msg)
+    this.socket.on('message', (msg) => {
+      this.message = msg;
+      console.log(msg);
       if (Notification.permission === 'granted') {
-        this.showNotification(msg);
+        this.showNotification(msg.title);
       } else {
         this.requestNotificationPermission();
         console.warn('Notifications are not permitted.');
@@ -47,26 +49,26 @@ export class AppComponent {
   }
 
   sendMessage(): void {
-    this.socket.emit('message', {
-      title: 'New Notification',
-      body: 'You have a new message!',
-      url: '/messages'
-    });
+    this.socket.emit('message', this.message);
   }
 
   ngAfterViewInit() {
   }
 
-  showNotification(message: string): void {
+  showNotification(message: any): void {
+    interface ExtendedNotificationOptions extends NotificationOptions {
+      actions?: Array<{ action: string; title: string; icon?: string }>;
+    }
+
     navigator.serviceWorker.getRegistration().then((reg) => {
       if (reg) {
-        reg.showNotification('New Message', {
-          body: message,
-          icon: '/assets/icons/icon-192x192.png',
-          // vibrate: [100, 50, 100],
+        const options: ExtendedNotificationOptions = {
+          body: message.body,
+          icon: message.img || '/assets/icons/icon-192x192.png',
           data: { dateOfArrival: Date.now(), primaryKey: 1 },
-          // actions: [{ action: 'explore', title: 'View Message' }]
-        });
+          actions: [{ action: 'explore', title: 'View Message' }],
+        };
+        reg.showNotification('New Message', options);
       }
     });
   }

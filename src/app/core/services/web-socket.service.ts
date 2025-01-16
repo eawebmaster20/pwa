@@ -10,7 +10,6 @@ export class WebSocketService {
     transports: ['websocket'] // Force WebSocket transport only
   });
   constructor() { 
-    // this.socket = io('https://octopus-arriving-monthly.ngrok-free.app/ws/topic/game/19cf7750-eeb9-490a-880c-37579a76233d/lobby');
     this.socket = io('node-socketio-production-cf7a.up.railway.app');
   }
 
