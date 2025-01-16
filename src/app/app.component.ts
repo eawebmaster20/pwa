@@ -10,6 +10,7 @@ import { first } from 'rxjs/operators';
 import { MediaQueryService } from './core/services/media-query/media-query.service';
 import { WebSocketService } from './core/services/web-socket.service';
 import { NotificationService } from './features/notification/service/notification-service/notification.service';
+import { LocalStorageService } from './core/services/localstorage.service';
 
 @Component({
   selector: 'app-root',
@@ -28,7 +29,8 @@ export class AppComponent {
     private updates: SwUpdate,
     private router: Router,
     private socket: WebSocketService,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+    private lsService: LocalStorageService
     // private mediaQueryService: MediaQueryService,
   ) {
     // dynamically handle viewport display
@@ -41,6 +43,13 @@ export class AppComponent {
     this.socket.on('message', (msg) => {
       this.message = msg;
       console.log(msg);
+      if (!this.lsService.getItem('notifications')){
+        this.lsService.setItem('notifications', [])
+      } 
+      const notificationsList = this.lsService.getItem('notifications')
+      notificationsList.push(msg)
+      this.lsService.setItem('notifications', notificationsList);
+      
       this.notificationService.allNotifications.push(msg);
       if (Notification.permission === 'granted') {
         this.showNotification(msg.title);
