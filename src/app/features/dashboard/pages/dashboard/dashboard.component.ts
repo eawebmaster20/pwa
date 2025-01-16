@@ -4,6 +4,7 @@ import { DatePipe } from '@angular/common';
 // local imports
 import { NotificationCardComponent } from "../../../notification/components/notification-card/notification-card.component";
 import { NavPanelComponent } from '../../../../shared/components/nav-panel/nav-panel.component';
+import { LocalStorageService } from '../../../../core/services/localstorage.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,5 +15,10 @@ import { NavPanelComponent } from '../../../../shared/components/nav-panel/nav-p
 })
 export class DashboardComponent {
   displayDate = signal(new Date());
+
+  constructor(private lsService: LocalStorageService){}
+  getNotificationsList(){
+    return this.lsService.getItem('notifications')?.length
+  }
   
 }
