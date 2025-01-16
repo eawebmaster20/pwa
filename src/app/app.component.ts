@@ -8,6 +8,7 @@ import { first } from 'rxjs/operators';
 
 // local imports
 import { MediaQueryService } from './core/services/media-query/media-query.service';
+import { WebSocketService } from './core/services/web-socket.service';
 
 @Component({
   selector: 'app-root',
@@ -24,6 +25,7 @@ export class AppComponent {
     private appRef: ApplicationRef, 
     private updates: SwUpdate,
     private router: Router,
+    private socket: WebSocketService,
     // private mediaQueryService: MediaQueryService,
   ) {
     // dynamically handle viewport display
@@ -33,8 +35,13 @@ export class AppComponent {
   }
 
   ngOnInit() {
+    this.socket.on('message', (msg: string) => {
+      console.log(msg)
+    });
+  }
 
-    
+  sendMessage(): void {
+    this.socket.emit('message', 'this.message');
   }
 
   ngAfterViewInit() {
