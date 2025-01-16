@@ -47,7 +47,11 @@ export class AppComponent {
   }
 
   sendMessage(): void {
-    this.socket.emit('message', 'this.message');
+    this.socket.emit('message', {
+      title: 'New Notification',
+      body: 'You have a new message!',
+      url: '/messages'
+    });
   }
 
   ngAfterViewInit() {
