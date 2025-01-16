@@ -14,7 +14,6 @@ export class WebSocketService {
   }
 
   on(event: string, callback: (data: any) => void): void {
-    // console.log('hi')
     this.socket.on(event, callback);
   }
 
