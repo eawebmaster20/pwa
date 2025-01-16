@@ -58,6 +58,7 @@ export class AppComponent {
         console.warn('Notifications are not permitted.');
       }
     });
+    setTimeout(()=>this.sendMessage(), 5000)
   }
 
   sendMessage(): void {
