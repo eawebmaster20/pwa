@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { io, Socket } from 'socket.io-client';
 
@@ -10,7 +9,7 @@ export class WebSocketService {
   socket: Socket = io('https://node-socketio-production-cf7a.up.railway.app', {
     transports: ['websocket'] // Force WebSocket transport only
   });
-  constructor(private http: HttpClient) { 
+  constructor() { 
     // this.socket = io('https://octopus-arriving-monthly.ngrok-free.app/ws/topic/game/19cf7750-eeb9-490a-880c-37579a76233d/lobby');
     this.socket = io('node-socketio-production-cf7a.up.railway.app');
   }
