@@ -30,13 +30,13 @@ export class AppComponent {
     private router: Router,
     private socket: WebSocketService,
     private notificationService: NotificationService,
-    private lsService: LocalStorageService
-    // private mediaQueryService: MediaQueryService,
+    private lsService: LocalStorageService,
+    private mediaQueryService: MediaQueryService,
   ) {
     // dynamically handle viewport display
-    // effect(() => {
-    //   this.handleMobileView();
-    // })
+    effect(() => {
+      this.handleMobileView();
+    })
   }
 
   ngOnInit() {
@@ -97,13 +97,13 @@ export class AppComponent {
     }
   }
   // handle mobile viewport
-  // handleMobileView () {
-  //   const isMobile = this.mediaQueryService.isMobile()
-  //   if (!isMobile) {
-  //     this.router.navigate(['/invalid-viewport'])
-  //   } else if (isMobile) {
-  //     this.router.navigate(['']);
-  //   }
+  handleMobileView () {
+    const isMobile = this.mediaQueryService.isMobile()
+    if (!isMobile) {
+      this.router.navigate(['/invalid-viewport'])
+    } else if (isMobile) {
+      this.router.navigate(['']);
+    }
 
-  // }
+  }
 }
