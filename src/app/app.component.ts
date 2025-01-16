@@ -40,6 +40,7 @@ export class AppComponent {
       if (Notification.permission === 'granted') {
         this.showNotification(msg);
       } else {
+        this.requestNotificationPermission();
         console.warn('Notifications are not permitted.');
       }
     });
@@ -66,6 +67,17 @@ export class AppComponent {
     });
   }
   
+  requestNotificationPermission(): void {
+    if ('Notification' in window) {
+      Notification.requestPermission().then((permission) => {
+        if (permission === 'granted') {
+          console.log('Notification permission granted.');
+        } else {
+          console.log('Notification permission denied.');
+        }
+      });
+    }
+  }
   // handle mobile viewport
   // handleMobileView () {
   //   const isMobile = this.mediaQueryService.isMobile()

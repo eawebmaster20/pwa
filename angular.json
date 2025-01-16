@@ -28,6 +28,7 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
+              "src/push-sw.js",
               "src/manifest.webmanifest"
             ],
             "styles": [
