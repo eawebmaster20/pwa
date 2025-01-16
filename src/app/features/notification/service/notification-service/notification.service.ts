@@ -2,6 +2,7 @@ import { Injectable, signal } from '@angular/core';
 
 // local imports
 import { Notification } from '../../model/notification.interface';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -73,7 +74,7 @@ export class NotificationService {
     },
   ]
   selectedNotification = signal<Notification | null>(null);
-
+  allNotifications:any[] = [];
   getNotifications() {
     return this.notifications
   }

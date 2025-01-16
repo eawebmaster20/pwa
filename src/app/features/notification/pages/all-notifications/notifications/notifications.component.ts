@@ -26,10 +26,7 @@ export class NotificationsComponent implements OnInit {
 
   ngOnInit(): void {
     this.notifications = this.notificationService.getNotifications();
-    this.route.queryParamMap.subscribe((params) => {
-      this.messageBody = params.get('body');
-      console.log(this.messageBody);
-    });
+    console.log(this.notificationService.allNotifications);
   }
 
   selectNotification(id:number):void {
