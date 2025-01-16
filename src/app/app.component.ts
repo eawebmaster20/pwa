@@ -68,7 +68,7 @@ export class AppComponent {
         const options: ExtendedNotificationOptions = {
           body: message.body,
           icon: message.img || '/assets/icons/icon-192x192.png',
-          data: { dateOfArrival: Date.now(), primaryKey: 1 },
+          data: message,
           actions: [{ action: 'explore', title: 'View Message' }],
         };
         reg.showNotification('New Message', options);
