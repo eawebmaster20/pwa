@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, } from '@angular/router';
+import { Router } from '@angular/router';
 
 // local imports
 import { NotificationCardComponent } from "../../../components/notification-card/notification-card.component";
@@ -20,16 +20,11 @@ export class NotificationsComponent implements OnInit {
   constructor(
     private notificationService: NotificationService,
     private router: Router,
-    private route: ActivatedRoute
   ) {};
 
 
   ngOnInit(): void {
     this.notifications = this.notificationService.getNotifications();
-    this.route.queryParamMap.subscribe((params) => {
-      this.messageBody = params.get('body');
-      console.log(this.messageBody);
-    });
   }
 
   selectNotification(id:number):void {
