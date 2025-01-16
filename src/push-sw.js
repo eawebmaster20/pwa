@@ -16,7 +16,7 @@ self.addEventListener('push', (event) => {
   self.addEventListener('notificationclick', (event) => {
     event.notification.close();
     const data = event.notification.data;
-    const urlToOpen = `/notifications?body=${encodeURIComponent(data?.body || '')}`;
+    const urlToOpen = `/notifications?body=${encodeURIComponent(data || '')}`;
     console.log(event);
     event.waitUntil(
       clients.openWindow(urlToOpen)
