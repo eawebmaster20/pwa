@@ -14,7 +14,7 @@ export const routes: Routes = [
         title: 'Transformer | All notifications'
     },
     {
-        path: 'notifications/:id',
+        path: 'notifications/data',
         loadComponent: () => import('./features/notification/pages/notification-message/notification-message/notification-message.component')
             .then(m => m.NotificationMessageComponent),
         title: 'Transformer | Message',
