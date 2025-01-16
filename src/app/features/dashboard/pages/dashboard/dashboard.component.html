@@ -22,7 +22,7 @@
         />
     </section>
     <div class="dashboard-content__grid grid-item-2">
-        <section class="dashboard-content__grid__details">
+        <section class="dashboard-content__grid__details" (click)="goToNotifications()">
             <p class="detail-title">Success</p>
             <p class="number-of-alert">{{getNotificationsList()}}</p>
             <p class="text">Notification</p>
