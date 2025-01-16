@@ -37,6 +37,11 @@ export class AppComponent {
   ngOnInit() {
     this.socket.on('message', (msg: string) => {
       console.log(msg)
+      if (Notification.permission === 'granted') {
+        this.showNotification(msg);
+      } else {
+        console.warn('Notifications are not permitted.');
+      }
     });
   }
 
@@ -47,7 +52,19 @@ export class AppComponent {
   ngAfterViewInit() {
   }
 
-
+  showNotification(message: string): void {
+    navigator.serviceWorker.getRegistration().then((reg) => {
+      if (reg) {
+        reg.showNotification('New Message', {
+          body: message,
+          icon: '/assets/icons/icon-192x192.png',
+          // vibrate: [100, 50, 100],
+          data: { dateOfArrival: Date.now(), primaryKey: 1 },
+          // actions: [{ action: 'explore', title: 'View Message' }]
+        });
+      }
+    });
+  }
   
   // handle mobile viewport
   // handleMobileView () {
