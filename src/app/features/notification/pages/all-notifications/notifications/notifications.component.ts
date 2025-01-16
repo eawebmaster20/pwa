@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { NotificationCardComponent } from "../../../components/notification-card/notification-card.component";
 import { NotificationService } from '../../../service/notification-service/notification.service';
 import { NavPanelComponent } from '../../../../../shared/components/nav-panel/nav-panel.component';
+import { LocalStorageService } from '../../../../../core/services/localstorage.service';
 
 @Component({
   selector: 'app-notifications',
@@ -19,12 +20,14 @@ export class NotificationsComponent implements OnInit {
 
   constructor(
     private notificationService: NotificationService,
+    private lsService: LocalStorageService,
     private router: Router,
   ) {};
 
 
   ngOnInit(): void {
-    this.notifications = this.notificationService.getNotifications();
+    // this.notifications = this.notificationService.getNotifications();
+    this.notifications = this.lsService.getItem('notifications') || []
   }
 
   selectNotification(id:number):void {
