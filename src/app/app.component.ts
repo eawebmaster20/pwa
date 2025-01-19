@@ -38,7 +38,7 @@ export class AppComponent {
       this.handleMobileView();
     })
   }
-
+  
   ngOnInit() {
     this.socket.on('message', (msg) => {
       this.message = msg;
@@ -59,6 +59,7 @@ export class AppComponent {
       }
     });
     // setTimeout(()=>this.sendMessage(), 5000)
+   
   }
 
   sendMessage(): void {
@@ -66,6 +67,9 @@ export class AppComponent {
   }
 
   ngAfterViewInit() {
+    // setInterval(() => {
+    //   this.sendMessage()
+    // }, 10000);
   }
 
   showNotification(message: any): void {
