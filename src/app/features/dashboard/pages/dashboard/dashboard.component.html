@@ -15,10 +15,10 @@
     <section class="current-data">
         <p class="detail-title">Current state</p>
         <app-notification-card 
-            [title]="'System is online'"
-            [description]="'System successfully booted'"
+            [title]="isConnected ?'System is online':'System is offline'"
+            [description]="isConnected ?'System successfully booted':''"
             [time]="'05:23'"
-            [status]="'successful'"
+            [status]="isConnected ?'successful':'warning'"
         />
     </section>
     <div class="dashboard-content__grid grid-item-2">
