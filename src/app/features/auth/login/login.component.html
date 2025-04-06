@@ -1,0 +1,14 @@
+<div class="auth-container">
+    <h2>Login</h2>
+    <div class="auth-form-card" [formGroup]="authFrom">
+        <input formControlName="username" type="text" class="form-control" placeholder="uesername">
+        <input formControlName="password" type="text" class="form-control" placeholder="password" type="password">
+        <button 
+            class="action-btn"
+            (click)="login()"
+            [disabled]="authFrom.invalid"
+            >Login
+        </button>
+    </div>
+    <span class="reset-pwd"><small>Forgotten password?</small> click here</span>
+</div>

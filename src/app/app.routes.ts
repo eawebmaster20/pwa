@@ -1,11 +1,17 @@
 import { Routes } from '@angular/router';
 import { DashboardComponent } from './features/dashboard/pages/dashboard/dashboard.component';
+import { LoginComponent } from './features/auth/login/login.component';
 
 export const routes: Routes = [
     {
         path: '',
         component: DashboardComponent,
         title: 'Transformer | Dashboard',
+    },
+    {
+        path: 'login',
+        component: LoginComponent,
+        title: 'AUTH | LOGIN',
     },
     {
         path: 'notifications',

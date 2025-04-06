@@ -1,0 +1,40 @@
+.auth-container{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1.3rem;
+
+    .auth-form-card{
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 300px;
+
+        .form-control{
+            width: 100%;
+            height: 2rem;
+            border-radius: 1rem;
+            padding: 0 1rem;
+            border: 1px solid rgba(136, 136, 136, 0);
+        }
+
+        button{
+            margin-top: 0.8rem;
+            color: rgb(186 229 27);
+            background-color: #0c222f;
+            padding: 0.5rem 0;
+            border-radius: 1rem;
+            border: 2px solid rgba(255, 255, 255, 0);
+
+            &:disabled{
+                background-color: #0c222f;
+                color: rgba(255, 255, 255, 0.5);
+                border: 2px solid rgba(255, 255, 255, 0.5);
+                cursor: not-allowed;
+            }
+        }
+    }
+}

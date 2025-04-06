@@ -29,6 +29,7 @@
     "@capacitor/ios": "^7.2.0",
     "@capacitor/splash-screen": "^7.0.1",
     "browser-sync": "^3.0.3",
+    "ngx-toastr": "^19.0.0",
     "rxjs": "~7.8.0",
     "socket.io-client": "^4.8.1",
     "tslib": "^2.3.0",

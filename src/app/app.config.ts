@@ -3,6 +3,8 @@ import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideServiceWorker } from '@angular/service-worker';
+import { provideHttpClient, withFetch } from '@angular/common/http';
+import { provideToastr } from 'ngx-toastr';
 
 
 export const appConfig: ApplicationConfig = {
@@ -17,5 +19,7 @@ export const appConfig: ApplicationConfig = {
         enabled: !isDevMode(),
         registrationStrategy: 'registerWhenStable:30000'
     }),
+    provideHttpClient(withFetch()),
+    provideToastr(),
 ]
 };

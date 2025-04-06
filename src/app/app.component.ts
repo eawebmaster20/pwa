@@ -107,7 +107,7 @@ export class AppComponent {
     if (!isMobile) {
       this.router.navigate(['/invalid-viewport'])
     } else if (isMobile) {
-      this.router.navigate(['']);
+      this.router.navigate(['/login']);
     }
 
   }
