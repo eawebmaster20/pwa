@@ -103,12 +103,12 @@ export class AppComponent {
   }
   // handle mobile viewport
   handleMobileView () {
-    // const isMobile = this.mediaQueryService.isMobile()
-    // if (!isMobile) {
-    //   this.router.navigate(['/invalid-viewport'])
-    // } else if (isMobile) {
+    const isMobile = this.mediaQueryService.isMobile()
+    if (!isMobile) {
+      this.router.navigate(['/invalid-viewport'])
+    } else if (isMobile) {
       this.router.navigate(['/login']);
-    // }
+    }
 
   }
 }
