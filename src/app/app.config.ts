@@ -1,6 +1,8 @@
 import { ApplicationConfig, isDevMode } from '@angular/core';
 import { provideRouter } from '@angular/router';
 
+import { provideAnimations } from '@angular/platform-browser/animations';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { routes } from './app.routes';
 import { provideServiceWorker } from '@angular/service-worker';
 import { provideHttpClient, withFetch } from '@angular/common/http';
@@ -20,6 +22,11 @@ export const appConfig: ApplicationConfig = {
         registrationStrategy: 'registerWhenStable:30000'
     }),
     provideHttpClient(withFetch()),
-    provideToastr(),
+    provideAnimationsAsync(),
+    provideAnimations(),
+    provideToastr({
+        positionClass: 'toast-top-center',
+        preventDuplicates: true
+    }),
 ]
 };

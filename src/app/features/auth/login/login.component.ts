@@ -25,7 +25,7 @@ export class LoginComponent {
   ){}
 
   login(){
-    console.log('hello')
+    console.log(this.authFrom.value)
     this.api.post(`${environment.apiUrl}/login`, this.authFrom.value).subscribe({
         next: (data: any) => {
           console.log(data);
@@ -33,7 +33,7 @@ export class LoginComponent {
           this.router.navigate(['/'])
         },
         error:(error: any) => {
-          this.toastr.error('Login Failed', 'failed')
+          this.toastr.error(error.error.message, 'Error');
           console.error(error);
         } 
       }

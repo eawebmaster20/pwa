@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import { io, Socket } from 'socket.io-client';
 import { BehaviorSubject } from 'rxjs';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class WebSocketService {
-  private readonly SOCKET_URL = 'localhost:3000'; // Update with your production URL if needed
+  private readonly SOCKET_URL = environment.WS_SOCKET_URL; 
   private socket: Socket;
-  private connectionStatus$ = new BehaviorSubject<boolean>(false); // Observable to track connection status
+  private connectionStatus$ = new BehaviorSubject<boolean>(false);
 
   constructor() {
     // Initialize the socket with WebSocket transport
@@ -56,37 +57,3 @@ export class WebSocketService {
     }
   }
 }
-
-// import { Injectable } from '@angular/core';
-// import { io, Socket } from 'socket.io-client';
-
-
-// @Injectable({
-//   providedIn: 'root'
-// })
-// export class WebSocketService {
-//   connectionStatus:boolean = false;
-//   socket: Socket = io('localhost:3000', {
-//     transports: ['websocket'] ,// Force WebSocket transport only
-//     autoConnect: true
-//   });
-//   constructor() { 
-//     // this.socket = io('node-socketio-production-cf7a.up.railway.app');
-//   }
-
-//   on(event: string, callback: (data: any) => void): void {
-//     this.socket.on(event, callback);
-//   }
-
-//   // Emit an event
-//   emit(event: string, data: any): void {
-//     this.socket.emit(event, data);
-//   }
-
-//   // Disconnect the socket
-//   disconnect(): void {
-//     this.socket.disconnect();
-//   }
-
-
-// }
